@@ -4,7 +4,7 @@
 # Pull base image.
 ### http://blog.docker.com/2015/03/updates-available-to-popular-repos-update-your-images/
 # dockerfile/java renamed to java
-### 
+###
 FROM openjdk:7
 MAINTAINER Frank Wang "eternnoir@gmail.com"
 
@@ -40,5 +40,6 @@ RUN wget http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${M
 ADD assets /assets
 RUN cp /assets/config/tomcat/tomcat-users.xml /opt/apache-tomcat-${TOMCAT_VERSION}/conf/
 
-CMD ["/assets/init"]
+USER appuser
 
+CMD ["/assets/init"]
